@@ -11,7 +11,6 @@ const JobDetails = () => {
 
   const { isAuthorized, user } = useContext(Context);
 
-  /*
   useEffect(() => {
     axios
       .get(`http://localhost:4000/api/v1/job/${id}`, {
@@ -21,10 +20,9 @@ const JobDetails = () => {
         setJob(res.data.job);
       })
       .catch((error) => {
-        navigateTo("/notfound");
+        console.log(err.response.data.json);
       });
-  }, []);
-*/
+  }, [id]);
 
 
   if (!isAuthorized) {
@@ -73,22 +71,20 @@ const JobDetails = () => {
             Benefits: <span>{job.benefits}</span>
           </p>
           <p>
-            Category: <span>{job.category}</span>
+            Job Posted On: <span>{job.jobPostedOn && new Date(job.jobPostedOn).toLocaleDateString()}</span>
           </p>
           <p>
-            Fixed Salary: <span>{job.fixedSalary}</span>
+            Salary:{" "}
+            {job.fixedSalary ? (
+              <span>{job.fixedSalary}</span>
+            ) : (
+              <span>
+                {job.salaryFrom} - {job.salaryTo}
+              </span>
+            )}
           </p>
           <p>
-            Salary From: <span>{job.salaryFrom}</span>
-          </p>
-          <p>
-            Salary To: <span>{job.salaryTo}</span>
-          </p>
-          <p>
-            Application Deadline: <span>{job.applicationDeadline}</span>
-          </p>
-          <p>
-            Contact Information: <span>{job.contactInformation}</span>
+            Application Deadline: <span>{job.applicationDeadline && new Date(job.applicationDeadline).toLocaleDateString()}</span>
           </p>
           <p>
             Company Overview: <span>{job.companyOverview}</span>
@@ -96,7 +92,7 @@ const JobDetails = () => {
           {user && user.role === "Employer" ? (
             <></>
           ) : (
-            <Link to={`/application/${job._id}`}>Apply Now</Link>
+            <Link to={`/apply/${job._id}`}>Apply Now</Link>
           )}
         </div>
       </div>
@@ -105,3 +101,4 @@ const JobDetails = () => {
 };
 
 export default JobDetails;
+
