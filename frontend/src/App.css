@@ -84,7 +84,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #fff;
+  background: #74ffda;
   padding: 20px 20px;
 }
 .authPage .container .header {
@@ -126,6 +126,7 @@ p {
   border: none;
   width: 100%;
   height: 100%;
+  color: #000;
 }
 .authPage .container form .inputTag div input:focus,
 .authPage .container form .inputTag div select:focus {
@@ -146,7 +147,7 @@ p {
   margin-top: 25px;
   font-weight: 700;
   color: #fff;
-  background: #2d5649;
+  background: #053526;
   font-size: 1.2rem;
   border-radius: 7px;
 }
@@ -586,7 +587,7 @@ p {
   }
 }
 .jobs {
-  background: #7f8ddd;
+  background: #2f2f2f;
   min-height: 100vh;
   padding: 50px 20px;
 }
@@ -608,7 +609,7 @@ p {
   padding: 30px 0;
 }
 .jobs .container .banner .card {
-  background: #ffc107;
+  background: #007242;
   text-decoration: none;
   width: 320px;
   height: 220px;
@@ -663,7 +664,7 @@ p {
 }
 
 .jobDetail {
-  background: #7f8ddd;
+  background: #2b2b2b;
   padding: 50px 20px;
 }
 .jobDetail .container {
@@ -685,7 +686,7 @@ p {
 }
 .jobDetail .container .banner p {
   font-weight: bold;
-  color: #2d5649;
+  color: #ffffff;
 }
 .jobDetail .container .banner p span {
   color: #18191c;
@@ -769,7 +770,7 @@ p {
   }
 }
 .my_applications {
-  background: #f1f3f6;
+  background: #2d2d2d;
   padding: 50px 20px;
   min-height: 885px;
 }
@@ -870,7 +871,7 @@ p {
 }
 
 .job_post {
-  background: #7f8ddd;
+  background: #1e1e1e;
   padding: 50px 20px;
   min-height: 870px;
   display: flex;
@@ -902,7 +903,7 @@ p {
   padding: 7px 4px;
   border: none;
   background: transparent;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(103, 103, 103);
 }
 .job_post .container form input,
 .job_post .container form textarea {
@@ -973,9 +974,8 @@ p {
   }
 }
 
-
 .myJobs {
-  background: #7f8ddd;
+  background: rgb(42, 42, 42);
   padding: 50px 20px;
   min-height: 870px;
 }
@@ -999,7 +999,7 @@ p {
   width: 100%;
   display: flex;
   gap: 20px;
-  border-bottom: 1px solid black;
+  border-bottom: 4px solid white;
   padding: 10px 0;
 }
 .myJobs .container .banner .card .content {
@@ -1017,16 +1017,16 @@ p {
   background: transparent;
   font-size: 16px;
   border: none;
-  color: #18191c;
+  color: rgb(154, 255, 235);
   padding: 7px 4px;
 }
 .myJobs .container .banner .card .content input:enabled,
 .myJobs .container .banner .card .content select:enabled {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gainsboro;
 }
 .myJobs .container .banner .card .content input:disabled,
 .myJobs .container .banner .card .content select:disabled {
-  color: black;
+  color: rgb(154, 255, 235);
 }
 .myJobs .container .banner .card .content .short_fields {
   flex: 1;
@@ -1054,13 +1054,13 @@ p {
 .myJobs .container .banner .card .content .long_field textarea {
   background: transparent;
   font-size: 16px;
-  color: #18191c;
+  color: rgb(154, 255, 235);
   border: none;
   padding: 7px 4px;
   height: fit-content;
 }
 .myJobs .container .banner .card .content .long_field textarea:disabled {
-  color: black;
+  color: rgb(154, 255, 235);
 }
 .myJobs .container .banner .card .content .long_field textarea:enabled {
   border-bottom: 1px solid gainsboro;
