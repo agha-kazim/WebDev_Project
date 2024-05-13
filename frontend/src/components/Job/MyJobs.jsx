@@ -99,211 +99,169 @@ const MyJobs = () => {
                           <span>Title:</span>
                           <input
                             type="text"
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
+                            disabled={editingMode !== element._id}
                             value={element.title}
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "title",
-                                e.target.value
-                              )
-                            }
+                            onChange={(e) => handleInputChange(element._id, "title", e.target.value)}
                           />
                         </div>
                         <div>
-                          {" "}
+                          <span>Company:</span>
+                          <input
+                            type="text"
+                            disabled={editingMode !== element._id}
+                            value={element.companyName}
+                            onChange={(e) => handleInputChange(element._id, "companyName", e.target.value)}
+                          />
+                        </div>
+                        <div>
                           <span>Country:</span>
                           <input
                             type="text"
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
+                            disabled={editingMode !== element._id}
                             value={element.country}
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "country",
-                                e.target.value
-                              )
-                            }
+                            onChange={(e) => handleInputChange(element._id, "country", e.target.value)}
                           />
                         </div>
                         <div>
                           <span>City:</span>
                           <input
                             type="text"
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
+                            disabled={editingMode !== element._id}
                             value={element.city}
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "city",
-                                e.target.value
-                              )
-                            }
+                            onChange={(e) => handleInputChange(element._id, "city", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Location:</span>
+                          <input
+                            type="text"
+                            disabled={editingMode !== element._id}
+                            value={element.location}
+                            onChange={(e) => handleInputChange(element._id, "location", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Job Type:</span>
+                          <input
+                            type="text"
+                            disabled={editingMode !== element._id}
+                            value={element.jobType}
+                            onChange={(e) => handleInputChange(element._id, "jobType", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Experience:</span>
+                          <input
+                            type="text"
+                            disabled={editingMode !== element._id}
+                            value={element.experience}
+                            onChange={(e) => handleInputChange(element._id, "experience", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Industry:</span>
+                          <input
+                            type="text"
+                            disabled={editingMode !== element._id}
+                            value={element.industry}
+                            onChange={(e) => handleInputChange(element._id, "industry", e.target.value)}
                           />
                         </div>
                         <div>
                           <span>Category:</span>
                           <select
                             value={element.category}
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "category",
-                                e.target.value
-                              )
-                            }
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
+                            onChange={(e) => handleInputChange(element._id, "category", e.target.value)}
+                            disabled={editingMode !== element._id}
                           >
-                            <option value="Graphics & Design">
-                              Graphics & Design
-                            </option>
-                            <option value="Mobile App Development">
-                              Mobile App Development
-                            </option>
-                            <option value="Frontend Web Development">
-                              Frontend Web Development
-                            </option>
-                            <option value="MERN Stack Development">
-                              MERN STACK Development
-                            </option>
-                            <option value="Account & Finance">
-                              Account & Finance
-                            </option>
-                            <option value="Artificial Intelligence">
-                              Artificial Intelligence
-                            </option>
-                            <option value="Video Animation">
-                              Video Animation
-                            </option>
-                            <option value="MEAN Stack Development">
-                              MEAN STACK Development
-                            </option>
-                            <option value="MEVN Stack Development">
-                              MEVN STACK Development
-                            </option>
-                            <option value="Data Entry Operator">
-                              Data Entry Operator
-                            </option>
+                            {/* Include your categories here */}
                           </select>
                         </div>
                         <div>
-                          <span>
-                            Salary:{" "}
-                            {element.fixedSalary ? (
+                          <span>Salary:</span>
+                          {element.fixedSalary ? (
+                            <input
+                              type="number"
+                              disabled={editingMode !== element._id}
+                              value={element.fixedSalary}
+                              onChange={(e) => handleInputChange(element._id, "fixedSalary", e.target.value)}
+                            />
+                          ) : (
+                            <div>
                               <input
                                 type="number"
-                                disabled={
-                                  editingMode !== element._id ? true : false
-                                }
-                                value={element.fixedSalary}
-                                onChange={(e) =>
-                                  handleInputChange(
-                                    element._id,
-                                    "fixedSalary",
-                                    e.target.value
-                                  )
-                                }
+                                disabled={editingMode !== element._id}
+                                value={element.salaryFrom}
+                                onChange={(e) => handleInputChange(element._id, "salaryFrom", e.target.value)}
                               />
-                            ) : (
-                              <div>
-                                <input
-                                  type="number"
-                                  disabled={
-                                    editingMode !== element._id ? true : false
-                                  }
-                                  value={element.salaryFrom}
-                                  onChange={(e) =>
-                                    handleInputChange(
-                                      element._id,
-                                      "salaryFrom",
-                                      e.target.value
-                                    )
-                                  }
-                                />
-                                <input
-                                  type="number"
-                                  disabled={
-                                    editingMode !== element._id ? true : false
-                                  }
-                                  value={element.salaryTo}
-                                  onChange={(e) =>
-                                    handleInputChange(
-                                      element._id,
-                                      "salaryTo",
-                                      e.target.value
-                                    )
-                                  }
-                                />
-                              </div>
-                            )}
-                          </span>
-                        </div>
-                        <div>
-                          {" "}
-                          <span>Expired:</span>
-                          <select
-                            value={element.expired}
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "expired",
-                                e.target.value
-                              )
-                            }
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
-                          >
-                            <option value={true}>TRUE</option>
-                            <option value={false}>FALSE</option>
-                          </select>
+                              <input
+                                type="number"
+                                disabled={editingMode !== element._id}
+                                value={element.salaryTo}
+                                onChange={(e) => handleInputChange(element._id, "salaryTo", e.target.value)}
+                              />
+                            </div>
+                          )}
                         </div>
                       </div>
                       <div className="long_field">
                         <div>
-                          <span>Description:</span>{" "}
+                          <span>Description:</span>
                           <textarea
                             rows={5}
                             value={element.description}
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "description",
-                                e.target.value
-                              )
-                            }
+                            disabled={editingMode !== element._id}
+                            onChange={(e) => handleInputChange(element._id, "description", e.target.value)}
                           />
                         </div>
                         <div>
-                          <span>Location: </span>
+                          <span>Responsibilities:</span>
                           <textarea
-                            value={element.location}
+                            value={element.responsibilities}
                             rows={5}
-                            disabled={
-                              editingMode !== element._id ? true : false
-                            }
-                            onChange={(e) =>
-                              handleInputChange(
-                                element._id,
-                                "location",
-                                e.target.value
-                              )
-                            }
+                            disabled={editingMode !== element._id}
+                            onChange={(e) => handleInputChange(element._id, "responsibilities", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Qualifications:</span>
+                          <textarea
+                            value={element.qualifications}
+                            rows={5}
+                            disabled={editingMode !== element._id}
+                            onChange={(e) => handleInputChange(element._id, "qualifications", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Benefits:</span>
+                          <textarea
+                            value={element.benefits}
+                            rows={5}
+                            disabled={editingMode !== element._id}
+                            onChange={(e) => handleInputChange(element._id, "benefits", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Contact Information:</span>
+                          <textarea
+                            value={element.contactInformation}
+                            rows={5}
+                            disabled={editingMode !== element._id}
+                            onChange={(e) => handleInputChange(element._id, "contactInformation", e.target.value)}
+                          />
+                        </div>
+                        <div>
+                          <span>Company Overview:</span>
+                          <textarea
+                            value={element.companyOverview}
+                            rows={5}
+                            disabled={editingMode !== element._id}
+                            onChange={(e) => handleInputChange(element._id, "companyOverview", e.target.value)}
                           />
                         </div>
                       </div>
                     </div>
+
                     {/* Out Of Content Class */}
                     <div className="button_wrapper">
                       <div className="edit_btn_wrapper">
