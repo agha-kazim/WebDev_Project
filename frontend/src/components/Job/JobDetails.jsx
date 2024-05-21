@@ -20,10 +20,9 @@ const JobDetails = () => {
         setJob(res.data.job);
       })
       .catch((error) => {
-        console.log(err.response.data.json);
+        navigateTo("/notfound");
       });
-  }, [id]);
-
+  }, []);
 
   if (!isAuthorized) {
     navigateTo("/login");
@@ -35,7 +34,7 @@ const JobDetails = () => {
         <h3>Job Details</h3>
         <div className="banner">
           <p>
-            Title: <span> {job.title}</span>
+            Title: <span>{job.title}</span>
           </p>
           <p>
             Company Name: <span>{job.companyName}</span>
@@ -92,7 +91,7 @@ const JobDetails = () => {
           {user && user.role === "Employer" ? (
             <></>
           ) : (
-            <Link to={`/apply/${job._id}`}>Apply Now</Link>
+            <Link to={`/application/${job._id}`}>Apply Now</Link>
           )}
         </div>
       </div>
