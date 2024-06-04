@@ -25,25 +25,27 @@ export const register = catchAsyncErrors(async (req, res, next) => {
 });
 
 export const login = catchAsyncErrors(async (req, res, next) => {
-    const { email, password, role } = req.body;
-    if (!email || !password || !role) {
-        return next(new ErrorHandler("Please provide email ,password and role."));
-    }
-    const user = await User.findOne({ email }).select("+password");
-    if (!user) {
-        return next(new ErrorHandler("Invalid Email Or Password.", 400));
-    }
-    const isPasswordMatched = await user.comparePassword(password);
-    if (!isPasswordMatched) {
-        return next(new ErrorHandler("Invalid Email Or Password.", 400));
-    }
-    if (user.role !== role) {
-        return next(
-            new ErrorHandler(`User with provided email and ${role} not found!`, 404)
-        );
-    }
-    sendToken(user, 200, res, "User Logged In!");
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return next(new ErrorHandler("Please provide email and password."));
+  }
+
+  const user = await User.findOne({ email }).select("+password");
+
+  if (!user) {
+    return next(new ErrorHandler("Invalid Email Or Password.", 400));
+  }
+
+  const isPasswordMatched = await user.comparePassword(password);
+
+  if (!isPasswordMatched) {
+    return next(new ErrorHandler("Invalid Email Or Password.", 400));
+  }
+
+  sendToken(user, 200, res, "User Logged In!");
 });
+
 
 export const logout = catchAsyncErrors(async (req, res, next) => {
     res
