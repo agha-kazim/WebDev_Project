@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiLock2Fill } from "react-icons/ri";
 import { Link, Navigate } from "react-router-dom";
-import { FaRegUser } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Context } from "../../main";
@@ -10,7 +9,6 @@ import { Context } from "../../main";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
 
   const { isAuthorized, setIsAuthorized } = useContext(Context);
 
@@ -19,7 +17,7 @@ const Login = () => {
     try {
       const { data } = await axios.post(
         "http://localhost:4000/api/v1/user/login",
-        { email, password, role },
+        { email, password },
         {
           headers: {
             "Content-Type": "application/json",
@@ -30,15 +28,14 @@ const Login = () => {
       toast.success(data.message);
       setEmail("");
       setPassword("");
-      setRole("");
       setIsAuthorized(true);
     } catch (error) {
       toast.error(error.response.data.message);
     }
   };
 
-  if(isAuthorized){
-    return <Navigate to={'/'}/>
+  if (isAuthorized) {
+    return <Navigate to={"/"} />;
   }
 
   return (
@@ -46,23 +43,16 @@ const Login = () => {
       <section className="authPage">
         <div className="container">
           <div className="header">
-            <img src="/JobPulse-logo.png" alt="logo" style={{height: '300px', width: '400px' }}/>
-            <h3 style={{ color: 'black' }}>Login to your account</h3>
+            <img
+              src="/JobPulse-logo.png"
+              alt="logo"
+              style={{ height: "300px", width: "400px" }}
+            />
+            <h3 style={{ color: "black" }}>Login to your account</h3>
           </div>
           <form>
             <div className="inputTag">
-              <label style={{ color: 'black' }}>Login As</label>
-              <div>
-                <select value={role} onChange={(e) => setRole(e.target.value)}>
-                  <option value="">Select Role</option>
-                  <option value="Employer">Employer</option>
-                  <option value="Job Seeker">Job Seeker</option>
-                </select>
-                <FaRegUser />
-              </div>
-            </div>
-            <div className="inputTag">
-              <label style={{ color: 'black' }}>Email Address</label>
+              <label style={{ color: "black" }}>Email Address</label>
               <div>
                 <input
                   type="email"
@@ -74,7 +64,7 @@ const Login = () => {
               </div>
             </div>
             <div className="inputTag">
-              <label style={{ color: 'black' }}>Password</label>
+              <label style={{ color: "black" }}>Password</label>
               <div>
                 <input
                   type="password"
@@ -92,7 +82,7 @@ const Login = () => {
           </form>
         </div>
         <div className="banner">
-          <img src="/login.png" alt="login" />
+          <img src="/jobpulse_login.png" alt="login" />
         </div>
       </section>
     </>
@@ -100,4 +90,5 @@ const Login = () => {
 };
 
 export default Login;
+
 
