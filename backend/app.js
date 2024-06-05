@@ -8,6 +8,7 @@ import userRouter from "./routes/userRouter.js";
 import applicationRouter from "./routes/applicationRouter.js";
 import { dbConnection } from "./database/dbConnection.js";
 import { errorMiddleware } from "./middlewares/error.js";
+import { isAuthenticated } from "./middlewares/auth.js";
 
 const app = express();
 config({ path: "./config/config.env" });
@@ -32,8 +33,8 @@ app.use(
 );
 
 app.use("/api/v1/user", userRouter);
-app.use("/api/v1/job", jobRouter);
-app.use("/api/v1/application", applicationRouter);
+app.use("/api/v1/job",isAuthenticated, jobRouter);
+app.use("/api/v1/application",isAuthenticated, applicationRouter);
 dbConnection();
 
 app.use(errorMiddleware);
